@@ -10,13 +10,14 @@ class TerminalStrips {
 
     public:
 
-        TerminalStrips();
+        TerminalStrips(Breadboard* newParent);
         ~TerminalStrips();
 
         std::vector<TerminalGroup*> getStrip();
 
     private:
 
+        Breadboard* parent;
         std::vector<TerminalGroup*> strip;
 
 };

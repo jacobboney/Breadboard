@@ -11,7 +11,7 @@ class PowerRail {
 
     public:
 
-        PowerRail();
+        PowerRail(Breadboard* newParent);
         ~PowerRail();
 
         std::vector<TerminalGroup*> getRailPos();
@@ -19,6 +19,7 @@ class PowerRail {
 
     private:
 
+        Breadboard* parent;
         std::vector<TerminalGroup*> railPos;
         std::vector<TerminalGroup*> railNeg;
 

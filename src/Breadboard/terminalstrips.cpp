@@ -1,7 +1,9 @@
 #include "terminalstrips.h"
 
-TerminalStrips::TerminalStrips() {
+TerminalStrips::TerminalStrips(Breadboard* newParent) {
 
+    parent = newParent;
+    
     for(int i = 0; i < 30; i++) {
         strip.push_back(new TerminalGroup(this));
     }
@@ -19,5 +21,5 @@ TerminalStrips::~TerminalStrips() {
 std::vector<TerminalGroup*> TerminalStrips::getStrip() {
 
     return strip;
-    
+
 }

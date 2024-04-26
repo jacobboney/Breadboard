@@ -1,7 +1,9 @@
 #include "powerrail.h"
 
-PowerRail::PowerRail() {
+PowerRail::PowerRail(Breadboard* newParent) {
 
+    parent = newParent;
+    
     for(int i = 0; i < 10; i++) {
         railPos.push_back(new TerminalGroup(this));
     };
