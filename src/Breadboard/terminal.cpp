@@ -1,7 +1,8 @@
 #include "terminal.h"
 
-Terminal::Terminal() {
+Terminal::Terminal(TerminalGroup* newGroup) {
 
+    group = newGroup;
     connection = nullptr;
     input = 0.0;
     output = 0.0;
@@ -10,7 +11,17 @@ Terminal::Terminal() {
 
 Terminal::~Terminal() {
 
-    delete connection;
+};
+
+TerminalGroup* Terminal::getGroup() {
+
+    return group;
+
+};
+
+void Terminal::setGroup(TerminalGroup* newGroup) {
+
+    group = newGroup;
 
 };
 
@@ -32,7 +43,7 @@ double Terminal::getInput() {
 
 };
 
-double Terminal::setInput(double newInput) {
+void Terminal::setInput(double newInput) {
 
     input = newInput;
 
@@ -44,7 +55,7 @@ double Terminal::getOutput() {
 
 };
 
-double Terminal::setOutput(double newOutput) {
+void Terminal::setOutput(double newOutput) {
 
     input = newOutput;
 
