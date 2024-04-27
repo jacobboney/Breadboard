@@ -15,6 +15,8 @@ class TerminalStrips {
 
         std::vector<TerminalGroup*> getStrip();
 
+        void printLine(int index);
+
     private:
 
         Breadboard* parent;

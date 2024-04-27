@@ -22,4 +22,11 @@ std::vector<TerminalGroup*> TerminalStrips::getStrip() {
 
     return strip;
 
-}
+};
+
+void TerminalStrips::printLine(int index) {
+
+    for(Terminal* each : strip.at(index)->getGroup()) {
+        std::cout << each->getOutput();
+    }
+};

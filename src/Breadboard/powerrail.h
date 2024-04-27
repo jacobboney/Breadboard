@@ -17,6 +17,8 @@ class PowerRail {
         std::vector<TerminalGroup*> getRailPos();
         std::vector<TerminalGroup*> getRailNeg();
 
+        void printLine(int index);
+
     private:
 
         Breadboard* parent;
