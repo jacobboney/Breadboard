@@ -20,7 +20,7 @@ class Breadboard {
         TerminalStrips* getTerminalStripA();
         TerminalStrips* getTerminalStripB();
 
-        void debugPrint();
+        void debugPrint(std::string type);
 
     private:
 

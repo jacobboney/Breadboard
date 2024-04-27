@@ -15,7 +15,7 @@ class TerminalStrips {
 
         std::vector<TerminalGroup*> getStrip();
 
-        void printLine(int index);
+        void printLine(int index, std::string type);
 
     private:
 

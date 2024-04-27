@@ -1,6 +1,10 @@
 #pragma once
 #include <vector>
+#include <string>
+#include <algorithm>
+#include <iterator>
 
+#include "terminal.h"
 #include "terminalgroup.h"
 #include "breadboard.h"
 
@@ -17,7 +21,7 @@ class PowerRail {
         std::vector<TerminalGroup*> getRailPos();
         std::vector<TerminalGroup*> getRailNeg();
 
-        void printLine(int index);
+        void printLine(int index, std::string type);
 
     private:
 

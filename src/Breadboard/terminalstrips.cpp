@@ -24,9 +24,14 @@ std::vector<TerminalGroup*> TerminalStrips::getStrip() {
 
 };
 
-void TerminalStrips::printLine(int index) {
+void TerminalStrips::printLine(int index, std::string type) {
 
     for(Terminal* each : strip.at(index)->getGroup()) {
-        std::cout << each->getOutput();
+        if(type == "input") {
+            std::cout << each->getInput();
+        }
+        else if(type == "output") {
+            std::cout << each->getOutput();
+        }
     }
 };

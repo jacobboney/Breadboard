@@ -3,7 +3,7 @@
 PowerRail::PowerRail(Breadboard* newParent) {
 
     parent = newParent;
-    
+
     for(int i = 0; i < 5; i++) {
         railPos.push_back(new TerminalGroup(this));
     };
@@ -29,28 +29,57 @@ std::vector<TerminalGroup*> PowerRail::getRailNeg() {
     
 }
 
-void PowerRail::printLine(int index) {
+void PowerRail::printLine(int index, std::string type) {
+
+    Terminal* terminalPos;
+    Terminal* terminalNeg;
+
     if(index < 5) {
-        std::cout << railPos.at(0)->getGroup().at(index % 5)->getOutput();
-        std::cout << railNeg.at(0)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railPos.at(0)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railNeg.at(0)->getGroup().at(index % 5)->getOutput();
+        terminalPos = railPos.at(0)->getGroup().at(index % 5);
+        terminalNeg = railNeg.at(0)->getGroup().at(index % 5);
     }
     else if(index < 10) {
-        std::cout << railPos.at(1)->getGroup().at(index % 5)->getOutput();
-        std::cout << railNeg.at(1)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railPos.at(1)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railNeg.at(1)->getGroup().at(index % 5)->getOutput();
+        terminalPos = railPos.at(1)->getGroup().at(index % 5);
+        terminalNeg = railNeg.at(1)->getGroup().at(index % 5);
     }
     else if(index < 15) { 
-        std::cout << railPos.at(2)->getGroup().at(index % 5)->getOutput();
-        std::cout << railNeg.at(2)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railPos.at(2)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railNeg.at(2)->getGroup().at(index % 5)->getOutput();
+        terminalPos = railPos.at(2)->getGroup().at(index % 5);
+        terminalNeg = railNeg.at(2)->getGroup().at(index % 5);
     }
     else if(index < 20) {
-        std::cout << railPos.at(3)->getGroup().at(index % 5)->getOutput();
-        std::cout << railNeg.at(3)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railPos.at(3)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railNeg.at(3)->getGroup().at(index % 5)->getOutput();
+        terminalPos = railPos.at(3)->getGroup().at(index % 5);
+        terminalNeg = railNeg.at(3)->getGroup().at(index % 5);
     }
     else if(index < 25) {
-        std::cout << railPos.at(4)->getGroup().at(index % 5)->getOutput();
-        std::cout << railNeg.at(4)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railPos.at(4)->getGroup().at(index % 5)->getOutput();
+        // std::cout << railNeg.at(4)->getGroup().at(index % 5)->getOutput();
+        terminalPos = railPos.at(4)->getGroup().at(index % 5);
+        terminalNeg = railNeg.at(4)->getGroup().at(index % 5);
     }
-    else{
+
+    if(type == "input" && index < 25) {
+        std::string terminalPosValue = std::to_string(terminalPos->getInput());
+        std::string terminalNegValue = std::to_string(terminalNeg->getInput());
+
+        std::cout << terminalPosValue;
+        std::fill_n(std::ostream_iterator<std::string>(std::cout, ""), 5 - terminalPosValue.length(), terminalPosValue);
+        std::cout << terminalNegValue;
+        std::fill_n(std::ostream_iterator<std::string>(std::cout, ""), 5 - terminalNegValue.length(), terminalNegValue);
+
+    }
+    else if(type == "output" && index < 25) {
+        std::cout << terminalPos->getOutput();
+        std::cout << terminalNeg->getOutput();
+    }
+    else {
         std::cout << "  ";
     }
 }
