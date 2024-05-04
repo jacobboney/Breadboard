@@ -66,14 +66,10 @@ void PowerRail::printLine(int index, std::string type) {
     }
 
     if(type == "input" && index < 25) {
-        std::string terminalPosValue = std::to_string(terminalPos->getInput());
-        std::string terminalNegValue = std::to_string(terminalNeg->getInput());
 
-        std::cout << terminalPosValue;
-        std::fill_n(std::ostream_iterator<std::string>(std::cout, ""), 5 - terminalPosValue.length(), terminalPosValue);
-        std::cout << terminalNegValue;
-        std::fill_n(std::ostream_iterator<std::string>(std::cout, ""), 5 - terminalNegValue.length(), terminalNegValue);
-
+        std::cout << std::setprecision(4) << terminalPos->getInput();
+        std::cout << std::setprecision(4) << terminalNeg->getInput();
+        
     }
     else if(type == "output" && index < 25) {
         std::cout << terminalPos->getOutput();

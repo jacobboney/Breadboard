@@ -4,7 +4,7 @@ Terminal::Terminal(TerminalGroup* newGroup) {
 
     group = newGroup;
     connection = nullptr;
-    input = 1.234;
+    input = 0.0;
     output = 0.0;
 
 };

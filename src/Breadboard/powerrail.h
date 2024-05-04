@@ -1,8 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <iterator>
+#include <iomanip>
 
 #include "terminal.h"
 #include "terminalgroup.h"
