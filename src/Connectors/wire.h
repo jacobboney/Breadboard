@@ -1,5 +1,5 @@
 #pragma once
-#include "terminal.h"
+#include "../Breadboard/terminal.h"
 
 class Wire {
 

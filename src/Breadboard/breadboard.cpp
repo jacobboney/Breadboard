@@ -26,8 +26,8 @@ void Breadboard::debugPrint(std::string type) {
 
     if (type == "input" || type == "output")
     {
-        std::cout << "---------------------------" << std::endl;
-        std::cout << "| +     -     A     B     C     D     E     F     G     H     I     J     +     -      |" << std::endl;
+        std::cout << "----------------------------------------------------------------------------------------------------------------------------------------------" << std::endl;
+        std::cout << "| +        -               A        B        C        D        E         F        G        H        I        J               +        -      |" << std::endl;
         for (int i = 0; i < 30; i++)
         {
             std::cout << "| ";
@@ -36,7 +36,7 @@ void Breadboard::debugPrint(std::string type) {
             {
                 std::cout << " ";
             }
-            std::cout << " " << i + 1 << " ";
+            std::cout << "   " << "(" << i + 1 << ")" << "   ";
             terminalStripA->printLine(i, type);
             std::cout << " ";
             terminalStripB->printLine(i, type);
@@ -44,10 +44,10 @@ void Breadboard::debugPrint(std::string type) {
             {
                 std::cout << " ";
             }
-            std::cout << " " << i + 1 << " ";
+            std::cout << "(" << i + 1 << ")" << "   ";
             powerRailB->printLine(i, type);
             std::cout << " |" << std::endl;
         }
-        std::cout << "---------------------------" << std::endl;
+        std::cout << "----------------------------------------------------------------------------------------------------------------------------------------------" << std::endl;
     }
 };

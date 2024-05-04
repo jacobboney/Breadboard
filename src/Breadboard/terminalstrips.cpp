@@ -27,11 +27,23 @@ std::vector<TerminalGroup*> TerminalStrips::getStrip() {
 void TerminalStrips::printLine(int index, std::string type) {
 
     for(Terminal* each : strip.at(index)->getGroup()) {
-        if(type == "input") {
-            std::cout << each->getInput();
+
+        double terminalValue;
+
+        if(type == "input")       { terminalValue = each->getInput().voltage; }
+        else if(type == "output") { terminalValue = each->getOutput().voltage; }
+
+        //Printing the terminal
+        std::ostringstream terminalStream;
+        terminalStream << std::fixed << std::setprecision(4) << terminalValue;
+        std::string terminalString = terminalStream.str();
+        while(terminalString.length() < 5) {
+            terminalString += " ";
         }
-        else if(type == "output") {
-            std::cout << each->getOutput();
-        }
+        std::cout << terminalString;
+
+        //Spacing
+        std::cout << "   ";
+
     }
 };

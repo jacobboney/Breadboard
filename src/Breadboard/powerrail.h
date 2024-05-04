@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <iomanip>
+#include <sstream>
 
 #include "terminal.h"
 #include "terminalgroup.h"

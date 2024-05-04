@@ -1,62 +1,18 @@
 #include "terminal.h"
 
 Terminal::Terminal(TerminalGroup* newGroup) {
-
     group = newGroup;
     connection = nullptr;
-    input = 0.0;
-    output = 0.0;
-
 };
 
-Terminal::~Terminal() {
+Terminal::~Terminal() { };
 
-};
+TerminalGroup* Terminal::getGroup() { return group; }
+void* Terminal::getConnection()     { return connection; }
+Electricity Terminal::getInput()    { return input; }
+Electricity Terminal::getOutput()   { return output; }
 
-TerminalGroup* Terminal::getGroup() {
-
-    return group;
-
-};
-
-void Terminal::setGroup(TerminalGroup* newGroup) {
-
-    group = newGroup;
-
-};
-
-void* Terminal::getConnection() {
-
-    return connection;
-
-};
-
-void Terminal::setConnection(void* newConnection) {
-
-    connection = newConnection;
-
-};
-
-double Terminal::getInput() {
-
-    return input;
-
-};
-
-void Terminal::setInput(double newInput) {
-
-    input = newInput;
-
-};
-
-double Terminal::getOutput() {
-
-    return output;
-
-};
-
-void Terminal::setOutput(double newOutput) {
-
-    input = newOutput;
-
-};
+void Terminal::setGroup(TerminalGroup* newGroup)  { group = newGroup; }
+void Terminal::setConnection(void* newConnection) { connection = newConnection; }
+void Terminal::setInput(Electricity newInput)     { input = newInput; }
+void Terminal::setOutput(Electricity newOutput)   { input = newOutput; }

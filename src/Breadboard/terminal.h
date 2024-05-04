@@ -1,5 +1,6 @@
 #pragma once
 #include "terminalgroup.h"
+#include "../Electricity/electricity.h"
 
 class TerminalGroup; //Forward Declaration of Class
 
@@ -16,16 +17,16 @@ class Terminal {
         void* getConnection();
         void setConnection(void* newConnection);
 
-        double getInput();
-        void setInput(double newInput);
+        Electricity getInput();
+        void setInput(Electricity newInput);
 
-        double getOutput();
-        void setOutput(double newOutput);
+        Electricity getOutput();
+        void setOutput(Electricity newOutput);
 
     private:
         TerminalGroup* group;
         void* connection;
-        double input;
-        double output;
+        Electricity input;
+        Electricity output;
 
 };

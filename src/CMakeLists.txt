@@ -6,5 +6,6 @@ set(SOURCE_FILES)
 
 add_subdirectory(Breadboard)
 add_subdirectory(Connectors)
+add_subdirectory(PowerSupply)
 
 add_executable(${PROJECT_NAME} main.cpp ${SOURCE_FILES})

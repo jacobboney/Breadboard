@@ -33,49 +33,55 @@ void PowerRail::printLine(int index, std::string type) {
 
     Terminal* terminalPos;
     Terminal* terminalNeg;
+    double    terminalPosValue;
+    double    terminalNegValue;
+    int       terminalGroup = -1;
 
-    if(index < 5) {
-        // std::cout << railPos.at(0)->getGroup().at(index % 5)->getOutput();
-        // std::cout << railNeg.at(0)->getGroup().at(index % 5)->getOutput();
-        terminalPos = railPos.at(0)->getGroup().at(index % 5);
-        terminalNeg = railNeg.at(0)->getGroup().at(index % 5);
-    }
-    else if(index < 10) {
-        // std::cout << railPos.at(1)->getGroup().at(index % 5)->getOutput();
-        // std::cout << railNeg.at(1)->getGroup().at(index % 5)->getOutput();
-        terminalPos = railPos.at(1)->getGroup().at(index % 5);
-        terminalNeg = railNeg.at(1)->getGroup().at(index % 5);
-    }
-    else if(index < 15) { 
-        // std::cout << railPos.at(2)->getGroup().at(index % 5)->getOutput();
-        // std::cout << railNeg.at(2)->getGroup().at(index % 5)->getOutput();
-        terminalPos = railPos.at(2)->getGroup().at(index % 5);
-        terminalNeg = railNeg.at(2)->getGroup().at(index % 5);
-    }
-    else if(index < 20) {
-        // std::cout << railPos.at(3)->getGroup().at(index % 5)->getOutput();
-        // std::cout << railNeg.at(3)->getGroup().at(index % 5)->getOutput();
-        terminalPos = railPos.at(3)->getGroup().at(index % 5);
-        terminalNeg = railNeg.at(3)->getGroup().at(index % 5);
-    }
-    else if(index < 25) {
-        // std::cout << railPos.at(4)->getGroup().at(index % 5)->getOutput();
-        // std::cout << railNeg.at(4)->getGroup().at(index % 5)->getOutput();
-        terminalPos = railPos.at(4)->getGroup().at(index % 5);
-        terminalNeg = railNeg.at(4)->getGroup().at(index % 5);
+    if(index < 5)       { terminalGroup = 0; }
+    else if(index < 10) { terminalGroup = 1; }
+    else if(index < 15) { terminalGroup = 2; }
+    else if(index < 20) { terminalGroup = 3; }
+    else if(index < 25) { terminalGroup = 4; }
+
+    if(terminalGroup != -1) {
+        terminalPos = railPos.at(terminalGroup)->getGroup().at(index % 5);
+        terminalNeg = railNeg.at(terminalGroup)->getGroup().at(index % 5);
     }
 
     if(type == "input" && index < 25) {
-
-        std::cout << std::setprecision(4) << terminalPos->getInput();
-        std::cout << std::setprecision(4) << terminalNeg->getInput();
-        
+        terminalPosValue = terminalPos->getInput().voltage;
+        terminalNegValue = terminalNeg->getInput().voltage;
     }
     else if(type == "output" && index < 25) {
-        std::cout << terminalPos->getOutput();
-        std::cout << terminalNeg->getOutput();
+        terminalPosValue = terminalPos->getOutput().voltage;
+        terminalNegValue = terminalNeg->getOutput().voltage;
     }
     else {
-        std::cout << "  ";
+        std::cout << "               ";
+        return;
     }
+
+    // Printing positive terminal
+    std::ostringstream posStream;
+    posStream << std::fixed << std::setprecision(4) << terminalPosValue;
+    std::string posString = posStream.str();
+    while (posString.length() < 5) {
+        posString += " ";
+    }
+    std::cout << posString;
+
+
+    // Spacer
+    std::cout << "   ";
+
+
+    // Printing negative terminal
+    std::ostringstream negStream;
+    negStream << std::fixed << std::setprecision(4) << terminalNegValue;
+    std::string negString = negStream.str();
+    while(negString.length() < 5) {
+        negString += " ";
+    }
+    std::cout << negString;
+
 }

@@ -21,7 +21,7 @@ TerminalGroup::~TerminalGroup() {
 void TerminalGroup::testFunction() {
 
     for (Terminal* each : group) {
-        std::cout << each->getInput() << std::endl;
+        std::cout << each->getInput().voltage << std::endl;
     }
     
 }
