@@ -2,9 +2,9 @@
 
 Wire::Wire(int newWireGauge, Terminal* newConnectionA, Terminal* newConnectionB) {
 
-    wireGauge = newWireGauge;
-    connectionA = newConnectionA;
-    connectionB = newConnectionB;
+    this->wireGauge = newWireGauge;
+    this->connectionA = newConnectionA;
+    this->connectionB = newConnectionB;
 
 };
 
@@ -20,7 +20,7 @@ int Wire::getWireGauge() {
 
 void Wire::setWireGauge(int newWireGauge) {
 
-    wireGauge = newWireGauge;
+    this->wireGauge = newWireGauge;
 
 }
 
@@ -32,7 +32,7 @@ double Wire::getInput() {
 
 void Wire::setInput(double newInput) {
 
-    input = newInput;
+    this->input = newInput;
 
 };
 
@@ -44,6 +44,6 @@ double Wire::getOutput() {
 
 void Wire::setOutput(double newOutput) {
 
-    output = newOutput;
+    this->output = newOutput;
 
 };
