@@ -1,5 +1,5 @@
 #pragma once
-#include "../Electricity/electricity.h"
+#include "../Breadboard/terminal.h"
 
 class Psu {
 
@@ -14,6 +14,7 @@ public:
     void setOutput(Electricity newOutput);
 
 private: 
+    Terminal* connection;
     Electricity input;
     Electricity output;
 };

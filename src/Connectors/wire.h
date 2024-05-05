@@ -11,11 +11,11 @@ class Wire {
         int getWireGauge();
         void setWireGauge(int newWireGauge);
 
-        double getInput();
-        void setInput(double newInput);
+        Electricity getInput();
+        void setInput(Electricity newInput);
 
-        double getOutput();
-        void setOutput(double newOutput);
+        Electricity getOutput();
+        void setOutput(Electricity newOutput);
 
         Terminal* getConnectionA();
         void setConnectionA(Terminal* newConnectionA);
@@ -26,8 +26,8 @@ class Wire {
     private:
 
         int wireGauge;
-        double input;
-        double output;
+        Electricity input;
+        Electricity output;
         Terminal* connectionA;
         Terminal* connectionB;
 

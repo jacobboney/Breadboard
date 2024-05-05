@@ -12,38 +12,10 @@ Wire::~Wire(){
 
 };
 
-int Wire::getWireGauge() {
+int Wire::getWireGauge()      { return wireGauge; }
+Electricity Wire::getInput()  { return input; }
+Electricity Wire::getOutput() { return output; }
 
-    return wireGauge;
-
-};
-
-void Wire::setWireGauge(int newWireGauge) {
-
-    this->wireGauge = newWireGauge;
-
-}
-
-double Wire::getInput() {
-
-    return input;
-
-};
-
-void Wire::setInput(double newInput) {
-
-    this->input = newInput;
-
-};
-
-double Wire::getOutput() {
-
-    return output;
-
-};
-
-void Wire::setOutput(double newOutput) {
-
-    this->output = newOutput;
-
-};
+void Wire::setWireGauge(int newWireGauge)   { this->wireGauge = newWireGauge; }
+void Wire::setInput(Electricity newInput)   { this->input = newInput; }
+void Wire::setOutput(Electricity newOutput) { this->output = newOutput; }
