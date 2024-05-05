@@ -17,5 +17,14 @@ Electricity Wire::getInput()  { return input; }
 Electricity Wire::getOutput() { return output; }
 
 void Wire::setWireGauge(int newWireGauge)   { this->wireGauge = newWireGauge; }
-void Wire::setInput(Electricity newInput)   { this->input = newInput; }
-void Wire::setOutput(Electricity newOutput) { this->output = newOutput; }
+void Wire::setInput(Electricity newInput) { 
+    this->input = newInput; 
+    //Do some current loss maybe?
+    setOutput(this->input);  
+}
+void Wire::setOutput(Electricity newOutput) { 
+    this->output = newOutput; 
+    if(connectionB != nullptr) {
+        connectionB->setInput(this->output);
+    }    
+}

@@ -3,9 +3,11 @@
 
 #include "powerrail.h"
 #include "terminalstrips.h"
+#include "terminal.h"
 
 class PowerRail;
 class TerminalStrips;
+class Terminal;
 
 class Breadboard {
 
@@ -20,7 +22,7 @@ class Breadboard {
         TerminalStrips* getTerminalStripA();
         TerminalStrips* getTerminalStripB();
 
-        void setConnection(void* connector, char column, int row);
+        Terminal* setConnection(void* connector, char column, int row);
         void debugPrint(std::string type);
 
     private:

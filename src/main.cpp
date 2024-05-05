@@ -21,7 +21,8 @@ int main(int argc, char *argv[]) {
     Breadboard* breadboardA = new Breadboard();
 
     //Connecting power to breadboard
-    
+    powerSupply->setConnectionPos(breadboardA->setConnection(powerSupply, 'W', 1));
+    powerSupply->getConnectionPos()->setInput(powerSupply->getOutput());
 
     bool runProgram = true;
     while(runProgram) {

@@ -10,11 +10,17 @@ public:
     Electricity getInput();
     Electricity getOutput();
 
+    Terminal* getConnectionPos();
+    void setConnectionPos(Terminal* newConnection);   
+    Terminal* getConnectionNeg();
+    void setConnectionNeg(Terminal* newConnection); 
+
     void setInput(Electricity newInput);
     void setOutput(Electricity newOutput);
 
 private: 
-    Terminal* connection;
+    Terminal* connectionPos;
+    Terminal* connectionNeg;
     Electricity input;
     Electricity output;
 };

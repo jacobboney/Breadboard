@@ -26,8 +26,24 @@ void TerminalGroup::testFunction() {
     
 }
 
-std::vector<Terminal*> TerminalGroup::getGroup() {
+std::vector<Terminal*> TerminalGroup::getGroup() { return group;  }
 
-    return group; 
+void TerminalGroup::setOutput(Electricity newOutput, bool calledFromTerminal) { 
+    this->output = newOutput; 
+    for(Terminal* each : group) {
+        each->setOutput(this->output, true);
+    }
+    if(calledFromTerminal) {
 
+        if(typeid(*reinterpret_cast<PowerRail*>(this->parent)) == typeid(PowerRail*)) {
+            std::cout << "Made it now" << std::endl;
+            PowerRail* tempPowerRail = reinterpret_cast<PowerRail*>(parent);
+            tempPowerRail->setRailPosOutput(this->output);
+        }
+    }
+}
+
+Terminal* TerminalGroup::setConnection(void *connector, int row)
+{
+    return group.at(row)->setConnection(connector);
 }

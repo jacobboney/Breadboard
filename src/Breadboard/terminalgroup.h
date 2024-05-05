@@ -2,6 +2,7 @@
 #include <vector>
 #include "terminal.h"
 #include "terminalstrips.h"
+#include "../Electricity/electricity.h"
 
 class Terminal; //Forward Declaration of Class
 class TerminalStrips; //Forward Declaration of Class
@@ -17,10 +18,13 @@ class TerminalGroup {
 
         std::vector<Terminal*> getGroup();
 
+        void setOutput(Electricity newOutput, bool calledFromTerminal);
+        Terminal* setConnection(void* connector, int row);
+
     private:
 
         void* parent;
         std::vector<Terminal*> group;
-        double output;
+        Electricity output;
 
 };

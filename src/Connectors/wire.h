@@ -1,6 +1,8 @@
 #pragma once
 #include "../Breadboard/terminal.h"
 
+class Terminal; //Forward Declaration of Class
+
 class Wire {
 
     public:

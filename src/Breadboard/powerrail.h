@@ -4,10 +4,12 @@
 #include <iomanip>
 #include <sstream>
 
+#include "../Electricity/electricity.h"
 #include "terminal.h"
 #include "terminalgroup.h"
 #include "breadboard.h"
 
+class Terminal; //Forward Declaration of Class
 class TerminalGroup; //Forward Declaration of Class
 class Breadboard; //Forward Declaration of Class
 
@@ -20,8 +22,10 @@ class PowerRail {
 
         std::vector<TerminalGroup*> getRailPos();
         std::vector<TerminalGroup*> getRailNeg();
+        int getTerminalGroup(int index);
 
-        void setConnection(void *connector, char column, int row);
+        Terminal* setConnection(void *connector, char column, int row);
+        void setRailPosOutput(Electricity output);
 
         void printLine(int index, std::string type);
 
@@ -30,5 +34,7 @@ class PowerRail {
         Breadboard* parent;
         std::vector<TerminalGroup*> railPos;
         std::vector<TerminalGroup*> railNeg;
+
+        Electricity railPosOutput;
 
 };

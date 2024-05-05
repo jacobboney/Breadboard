@@ -15,45 +15,44 @@ Breadboard::Breadboard() {
 Breadboard::~Breadboard() {
 
     //Delete Power Rails
-    delete powerRailA, powerRailB;
+    delete powerRailA; 
+    delete powerRailB;
 
     //Delete Terminal Strips
-    delete terminalStripA, terminalStripB;
+    delete terminalStripA; 
+    delete terminalStripB;
 
 }
 
-void Breadboard::setConnection(void *connector, char column, int row) {
-
-    void* terminalLocation;
-
-    std::string columns = "ABCDEFGHIJWXYZ";
+Terminal* Breadboard::setConnection(void *connector, char column, int row) {
 
     if(row - 1 < 30) {
-        for(int i = 0; i < columns.length(); i++) {
-            char tempLetter = columns[i];
-            if(tempLetter == 'W' || tempLetter == 'X') {
-                
-            }
-            else if(tempLetter == 'Y' || tempLetter == 'Z') {
-
-            }
-            else if(tempLetter == 'A' || tempLetter == 'B' || tempLetter == 'C' || tempLetter == 'D' || tempLetter == 'E') {
-
-            }
-            else if(tempLetter == 'A' || tempLetter == 'B' || tempLetter == 'C' || tempLetter == 'D' || tempLetter == 'E') {
-
-            }
-            else {
-                std::cout << "Column does not exist" << std::endl;
-            }
+        if(column == 'W' || column == 'X') {
+            if(column == 'W') { return powerRailA->setConnection(connector, 'P', row - 1); }
+            else              { return powerRailA->setConnection(connector, 'N', row - 1); }
+        }
+        else if(column == 'Y' || column == 'Z') {
+            if(column == 'Y') { return powerRailB->setConnection(connector, 'P', row - 1); }
+            else              { return powerRailB->setConnection(connector, 'N', row - 1); }
+        }
+        else if(column == 'A' || column == 'B' || column == 'C' || column == 'D' || column == 'E') {
+            return nullptr;
+        }
+        else if(column == 'F' || column == 'G' || column == 'H' || column == 'I' || column == 'J') {
+            return nullptr;
+        }
+        else {
+            std::cout << "Column does not exist" << std::endl;
+            return nullptr;
         }
     }
     else {
         std::cout << "Row does not exist" << std::endl;
+        return nullptr;
     }
 
-
-
+    std::cout << "Breadboard conneciton failing" << std::endl;
+    return nullptr;
 }
 
 void Breadboard::debugPrint(std::string type) {

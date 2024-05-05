@@ -29,17 +29,37 @@ std::vector<TerminalGroup*> PowerRail::getRailNeg() {
     
 }
 
-void PowerRail::setConnection(void *connector, char column, int row) {
+int PowerRail::getTerminalGroup(int index)
+{
+    if(index < 5)       { return 0; }
+    else if(index < 10) { return 1; }
+    else if(index < 15) { return 2; }
+    else if(index < 20) { return 3; }
+    else if(index < 25) { return 4; }
+    else                { return -1; }
+}
+
+Terminal* PowerRail::setConnection(void* connector, char column, int row) {
     if(row < 25) {
+        int terminalGroup = getTerminalGroup(row);
         if(column == 'P') {
-            
+            return railPos.at(terminalGroup)->setConnection(connector, row);
         }
         else if(column == 'N') {
-
+            return railNeg.at(terminalGroup)->setConnection(connector, row);
         }
     }
     else {
         std::cout << "Row does not exist" << std::endl;
+        return nullptr;
+    }
+    return nullptr;
+}
+
+void PowerRail::setRailPosOutput(Electricity output) {
+    this->railPosOutput = output;
+    for(TerminalGroup* each : railPos) {
+        each->setOutput(this->railPosOutput, false);
     }
 }
 
@@ -49,13 +69,9 @@ void PowerRail::printLine(int index, std::string type) {
     Terminal* terminalNeg;
     double    terminalPosValue;
     double    terminalNegValue;
-    int       terminalGroup = -1;
+    int       terminalGroup;
 
-    if(index < 5)       { terminalGroup = 0; }
-    else if(index < 10) { terminalGroup = 1; }
-    else if(index < 15) { terminalGroup = 2; }
-    else if(index < 20) { terminalGroup = 3; }
-    else if(index < 25) { terminalGroup = 4; }
+    terminalGroup = getTerminalGroup(index);
 
     if(terminalGroup != -1) {
         terminalPos = railPos.at(terminalGroup)->getGroup().at(index % 5);
