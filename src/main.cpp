@@ -4,16 +4,24 @@
 
 int main(int argc, char *argv[]) {
 
+    //Power from wall
     Electricity wallPower;
     wallPower.voltage = 120.0;
     wallPower.amperage = 15.0;
 
+    //Power to breadboard
     Electricity desiredOutput;
     desiredOutput.voltage = 5.0;
     desiredOutput.amperage = 1.0;
 
+    //Creating power supply
     Psu* powerSupply = new Psu(wallPower, desiredOutput);
+
+    //Creation of breadboard
     Breadboard* breadboardA = new Breadboard();
+
+    //Connecting power to breadboard
+    
 
     bool runProgram = true;
     while(runProgram) {

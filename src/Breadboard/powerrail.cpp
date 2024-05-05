@@ -29,6 +29,20 @@ std::vector<TerminalGroup*> PowerRail::getRailNeg() {
     
 }
 
+void PowerRail::setConnection(void *connector, char column, int row) {
+    if(row < 25) {
+        if(column == 'P') {
+            
+        }
+        else if(column == 'N') {
+
+        }
+    }
+    else {
+        std::cout << "Row does not exist" << std::endl;
+    }
+}
+
 void PowerRail::printLine(int index, std::string type) {
 
     Terminal* terminalPos;

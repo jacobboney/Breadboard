@@ -20,6 +20,7 @@ class Breadboard {
         TerminalStrips* getTerminalStripA();
         TerminalStrips* getTerminalStripB();
 
+        void setConnection(void* connector, char column, int row);
         void debugPrint(std::string type);
 
     private:

@@ -21,6 +21,8 @@ class PowerRail {
         std::vector<TerminalGroup*> getRailPos();
         std::vector<TerminalGroup*> getRailNeg();
 
+        void setConnection(void *connector, char column, int row);
+
         void printLine(int index, std::string type);
 
     private:

@@ -10,7 +10,7 @@ Breadboard::Breadboard() {
     terminalStripA = new TerminalStrips(this);
     terminalStripB = new TerminalStrips(this);
 
-};
+}
 
 Breadboard::~Breadboard() {
 
@@ -20,7 +20,41 @@ Breadboard::~Breadboard() {
     //Delete Terminal Strips
     delete terminalStripA, terminalStripB;
 
-};
+}
+
+void Breadboard::setConnection(void *connector, char column, int row) {
+
+    void* terminalLocation;
+
+    std::string columns = "ABCDEFGHIJWXYZ";
+
+    if(row - 1 < 30) {
+        for(int i = 0; i < columns.length(); i++) {
+            char tempLetter = columns[i];
+            if(tempLetter == 'W' || tempLetter == 'X') {
+                
+            }
+            else if(tempLetter == 'Y' || tempLetter == 'Z') {
+
+            }
+            else if(tempLetter == 'A' || tempLetter == 'B' || tempLetter == 'C' || tempLetter == 'D' || tempLetter == 'E') {
+
+            }
+            else if(tempLetter == 'A' || tempLetter == 'B' || tempLetter == 'C' || tempLetter == 'D' || tempLetter == 'E') {
+
+            }
+            else {
+                std::cout << "Column does not exist" << std::endl;
+            }
+        }
+    }
+    else {
+        std::cout << "Row does not exist" << std::endl;
+    }
+
+
+
+}
 
 void Breadboard::debugPrint(std::string type) {
 
@@ -50,4 +84,4 @@ void Breadboard::debugPrint(std::string type) {
         }
         std::cout << "----------------------------------------------------------------------------------------------------------------------------------------------" << std::endl;
     }
-};
+}
